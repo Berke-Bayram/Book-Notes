@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs') %>
+<body>
+  <main>
+    <div class="main-container">
+      <div class="header-div">
+        <h1>Edit the Post</h1>
+        <hr>
+      </div>
+      <div class="input-body">
+        <a href="/" class="return">Return to Main Page</a>
+        <p>Edit | <%= record.title %></p>
+        <form action="/edit" method="post" class="input-form">
+          <div class="grid-inputs">
+            <div class="label-div">
+              <label for="title">Title: </label>
+              <input type="text" name="title" value="<%= record.title %>" required>
+            </div>
+            <div class="label-div">
+              <label for="author">Author: </label>
+              <input type="text" name="author" value="<%= record.author %>" required>
+            </div>
+            <div class="label-div">
+              <label for="category">Category: </label>
+              <input type="text" name="category" value="<%= record.category %>" required maxlength="50">
+            </div>
+            <div class="label-div">
+              <label for="keywords">Keywords (Optional): </label>
+              <input type="hidden" name="keywordArray" class="keywordArray">
+              <input type="hidden" class="prevArray" value="<%= record.keywords %>">
+              <input type="text" class="keywords" name="keywords" placeholder="Press Enter..">
+              <div class="keyword-list">
+                <% if(((locals.record.keywords) !== null) && ((locals.record.keywords) !== '')) { %>
+                  <% const array = (record.keywords).split(","); %>
+                  <% array.forEach(element => { %>
+                    <span class="keyword"><%= element %><button class="rm-button">❌</button></span>
+                  <% }); %>
+                <% } %>
+              </div>
+            </div>
+            <button class="main-btn">Edit</button>
+            <input type="hidden" name="idValue" value= "<%= record.id %>">
+          </div>
+            
+          <div class="grid-notes">
+            <div class="label-div notes">
+              <label for="notes" class="notes-lbl">Notes: </label>
+              <textarea name="notes" id="notes" required></textarea>
+            </div>
+            <div class="label-div rating">
+              <label for="rating">Rating (between 1 and 10):</label>
+              <input type="number" id="rating" name="rating" value="<%= record.rating %>" min="1" max="10" required>
+            </div>
+            <div class="label-div olid">
+              <label for="olid">Open Library ID (Optional)</label>
+              <input type="text" name="olid" class="olid" size="30" value = "<%= record.olid %>" placeholder="Sample Format: OL24767384M">
+            </div>
+            <button class="hidden-btn">Edit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--The path is relative to "public" folder-->
+    <script src="./javascript/edit.js"></script>
+    <script>
+      const area = $('#notes');
+      // Change the value of "textarea" on the edit page
+      area.val('<%= record.description %>');
+    </script>
+  </main>
+  <%- include("footer.ejs") %>
+</body>
+</html>

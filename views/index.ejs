@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/header.ejs') %>
+<body>
+  <main>
+    <div class="main-container">
+      <div class="header-div">
+        <h1>Book Notes</h1>
+        <p>
+          This website includes my notes and reviews on some books that I find worth writing about.
+          If you are looking for something to read, I hope you can find your next favorite book up here.
+          And feel free to add your own reviews if you like!
+        </p>
+        <p>
+          "Open Library Covers API" is used in this project.
+          Reference Link: <a href="https://openlibrary.org/dev/docs/api/covers" class="api-ref">API</a>
+        </p>
+        <form action="/create" method="get">
+          <button>Create Your Review</button>
+        </form>
+        <hr>
+        <div class="sorting">
+          <p><%= message %></p>
+          <p>You can sort the records by title, date, or rating.</p>
+          <div class="sort-forms">
+            <form action="/date-sorted" method="get">
+              <button>Sort by Date</button>
+            </form>
+            <form action="/rating-sorted" method="get">
+              <button>Sort by Rating</button>
+            </form>
+            <form action="/title-sorted" method="get">
+              <button>Sort by Title</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="book-cards">
+        <% if(allRecords) { %>
+          <% allRecords.rows.forEach(record => { %>
+            <div class="small-card">
+              <h2 class="small-card-header"><%= record.title %></h2>
+              <form action="/view" method="post">
+                <button name="viewButton" value="<%= record.id %>">View</button>
+              </form>
+            </div>
+          <% }); %>
+        <% } %>
+      </div>
+    </div>
+  </main>
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs') %>
+<body>
+  <main>
+    <div class="main-container">
+      <div class="header-div">
+        <h1>Create Your Post</h1>
+        <hr>
+      </div>
+      <div class="input-body">
+          <form action="/add" method="post" class="input-form">
+            <div class="grid-inputs">
+              <a href="/" class="return">Return to Main Page</a>
+              <p>Start creating your own review from here!</p>
+              <div class="label-div">
+                <label for="title">Title: </label>
+                <input type="text" name="title" required>
+              </div>
+              <div class="label-div">
+                <label for="author">Author: </label>
+                <input type="text" name="author" required>
+              </div>
+              <div class="label-div">
+                <label for="category">Category: </label>
+                <input type="text" name="category" required maxlength="50">
+              </div>
+              <div class="label-div">
+                <label for="keywords">Keywords (Optional): </label>
+                <input type="hidden" name="keywordArray" class="keywordArray">
+                <input type="text" class="keywords" placeholder="Press Enter.." maxlength="25">
+                <div class="keyword-list"></div>
+              </div>
+              <button class="main-btn">Submit</button>
+            </div>
+            
+            <div class="grid-notes">
+              <div class="label-div notes">
+                <label for="notes" class="notes-lbl">Notes: </label>
+                <textarea name="notes" required></textarea>
+              </div>
+              <div class="label-div rating">
+                <label for="rating">Rating (between 1 and 10):</label>
+                <input type="number" id="rating" name="rating" min="1" max="10" required>
+              </div>
+              <div class="label-div olid">
+                <label for="olid">Open Library ID (Optional)</label>
+                <input type="text" name="olid" class="olid" size="30" placeholder="Sample Format: OL24767384M">
+              </div>
+              <button class="hidden-btn">Submit</button>
+            </div>
+          </form>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--The path is relative to "public" folder-->
+    <script src="./javascript/create.js"></script>
+  </main>
+  <%- include("footer.ejs") %>
+</body>
+</html>

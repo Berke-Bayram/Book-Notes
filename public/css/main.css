@@ -1,0 +1,141 @@
+body {
+  color: whitesmoke;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  background:
+      conic-gradient(from -60deg at 50% calc(100%/3),#130f40 0 120deg,#0000 0),
+      conic-gradient(from 120deg at 50% calc(200%/3),#130f40 0 120deg,#0000 0),
+      conic-gradient(from  60deg at calc(200%/3),#130f40 60deg,#12087b 0 120deg,#0000 0),
+      conic-gradient(from 180deg at calc(100%/3),#494db6 60deg,#130f40 0 120deg,#0000 0),
+      linear-gradient(90deg,#494db6 calc(100%/6),#12087b 0 50%,
+      #494db6 0 calc(500%/6), #12087b 0);
+  background-size: 69px 40px;
+  font-family: "Lora";
+}
+
+main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.view-hr {
+  border: 2px solid whitesmoke;
+  border-radius: 20%;
+}
+
+button {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #686de0;
+  text-shadow: 1px 1px 4px black;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10%;
+  box-shadow: 3px 3px #2b2e78;
+  transition: box-shadow 0.3s;
+}
+
+button:hover {
+  box-shadow: none;
+  background-color: #0c2461;
+}
+
+.api-ref {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.return {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: white;
+  padding: 0.5rem 0;
+  border: none;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.return:hover {
+  border: 2px solid white;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #0c2461;
+}
+
+h1, h2, h3, .return, a {
+  font-family: "Rufina";
+}
+
+.main-container {
+  width: 60%;
+}
+
+@media screen and (max-width: 800px) {
+  .main-container {
+    width: 90%;
+  }
+}
+
+.header-div {
+  text-align: center;
+  background-color: #130f4088;
+  padding: 10px 10px;
+}
+
+.header-div p {
+  font-size: 1.2rem;
+}
+
+.sort-forms form {
+  display: inline;
+  margin-right: 1rem;
+}
+
+.book-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.small-card {
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  text-align: center;
+  background-color: rgb(37, 170, 159, 0.6);
+  background-image: url("../images/books-bg.jpg");
+  border-radius: 15%;
+}
+
+@media screen and (max-width: 800px) {
+  .small-card {
+    width: 80%;
+  }
+
+  .sorting button {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.small-card-header {
+  text-shadow: 2px 2px 3px black;
+}
+
+h1 {
+  text-shadow: 1px 1px 20px lightblue;
+}
+
+footer {
+  width: 100%;
+  font-size: 1.1rem;
+  text-align: center;
+  background-color: #2b2e78;
+}

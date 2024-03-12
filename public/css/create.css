@@ -1,0 +1,137 @@
+.input-body {
+  padding: 1rem 0;
+  background-color: #4834d4;
+  padding-left: 1rem;
+}
+
+input, textarea {
+  background-color: #6352d470;
+  box-shadow: 8px 8px 8px #3d328270;
+  outline: 1px solid plum;
+  color: azure;
+}
+
+input {
+  font-size: 1.2rem;
+  border: none;
+  box-sizing: border-box;
+}
+
+textarea {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+input:focus,textarea:focus {
+  box-shadow: 0 0 0 2px rgb(149, 51, 223);
+}
+
+::placeholder {
+  color: rgb(179, 162, 162);
+}
+
+.input-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  grid-template-rows: 1fr;
+}
+
+.hidden-btn {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .input-form {
+    display: flex;
+    grid-gap: 0.5rem;
+    flex-direction: column;
+  }
+  .input-body {
+    margin-bottom: 2rem;
+  }
+  .olid {
+    display: block;
+  }
+  .grid-notes, .grid-inputs {
+    width: 100%;
+  }
+  .main-btn {
+    display: none;
+  }
+  .hidden-btn {
+    display: block;
+  }
+}
+
+label {
+  font-family: "Rufina";
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 0.2rem;
+}
+
+.input-body form {
+  margin: 1rem;
+  margin-left: 0;
+}
+
+.label-div {
+  margin-bottom: 1rem;
+}
+
+textarea {
+  width: 300px; 
+  height: 150px; 
+  resize: none;
+  font-family: "Lora";
+}
+
+.notes {
+  display: flex;
+  align-items: center;
+}
+
+.notes-lbl {
+  margin-right: 0.5rem;
+}
+
+.keywords, .olid, .keyword-list{
+  margin-top: 0.6rem;
+}
+
+.keyword {
+  font-family: "Rufina";
+  font-weight: 900;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+  box-shadow: 2px 2px 2px #ccc;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.rm-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20%;
+  background-color: #4938b8;
+  color: #ccc;
+  border: none;
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  box-shadow: 0px 0px;
+  transition: none;
+  cursor: pointer;
+  position: relative;
+  top: -4px;
+  right: -7px;
+}
+
+
+

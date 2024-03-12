@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs') %>
+<body>
+  <main>
+    <div class="main-container">
+      <div class="header-div">
+        <h1><%= record.title %></h1>
+        <hr>
+      </div>
+      <div class="view-div">
+        <div class="view-left">
+          <div>
+            <a href="/" class="return">Return to Main Page</a>
+          </div>
+          <div>
+            <h3>Author: <%= record.author %></h3>
+            <h3>Rating: <%= record.rating %>/10</h3>
+            <h3 class="hidden-category">Category: <%= record.category %></h3>
+            <h3>Post Date: <%= date %></h3>
+            <hr class="view-hr">
+            <p class="desc"><%= record.description %></p>
+            <div class="keywords">
+              <h3>Keywords:</h3>
+              <% if(((locals.record.keywords) !== null) && ((locals.record.keywords) !== '')) { %>
+                <% const array = (record.keywords).split(","); %>
+                <% array.forEach(element => { %>
+                  <span class="keyword"><%= element %></span>
+                <% }); %>
+              <% } else { %>
+                <p>No keywords for that review.</p>
+              <% } %>
+            </div>
+            <form action="/edit-review" method="post">
+              <input type="hidden" name="idValue" value= "<%= id %>">
+              <button>Edit</button>
+            </form>
+            <form action="/delete" method="post">
+              <input type="hidden" name="idValue" value= "<%= id %>">
+              <button>Delete</button>
+            </form>
+          </div>
+        </div>
+        <div class="view-right">
+          <div class="cover">
+            <div class="spinner" id="spinner">
+              <div></div>   
+              <div></div>    
+              <div></div>    
+              <div></div>    
+              <div></div>    
+              <div></div>    
+              <div></div>    
+              <div></div>    
+              <div></div>    
+              <div></div>    
+            </div>
+            <style>
+            .spinner {
+               position: absolute;
+               width: 9px;
+               height: 9px;
+            }
+            
+            .spinner div {
+               position: absolute;
+               width: 50%;
+               height: 150%;
+               background: #140a82;
+               transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+               animation: spinner-fzua35 0.8s calc(var(--delay) * 0.8s) infinite ease;
+            }
+            
+            .spinner div:nth-child(1) {
+               --delay: 0.08000000000000002;
+               --rotation: 36;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(2) {
+               --delay: 0.16000000000000003;
+               --rotation: 72;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(3) {
+               --delay: 0.24;
+               --rotation: 108;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(4) {
+               --delay: 0.32000000000000006;
+               --rotation: 144;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(5) {
+               --delay: 0.4;
+               --rotation: 180;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(6) {
+               --delay: 0.48;
+               --rotation: 216;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(7) {
+               --delay: 0.5599999999999999;
+               --rotation: 252;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(8) {
+               --delay: 0.6400000000000001;
+               --rotation: 288;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(9) {
+               --delay: 0.7200000000000001;
+               --rotation: 324;
+               --translation: 150;
+            }
+            
+            .spinner div:nth-child(10) {
+               --delay: 0.8;
+               --rotation: 360;
+               --translation: 150;
+            }
+            
+            @keyframes spinner-fzua35 {
+               0%, 10%, 20%, 30%, 50%, 60%, 70%, 80%, 90%, 100% {
+                  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
+               }
+            
+               50% {
+                  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1.5%));
+               }
+            }
+            </style>
+            <img src="<%= record.img_url %>" id="cover" height="200" width="150" alt="book cover" style="display: none">
+          </div>
+ 
+          <div class="category">
+              <h2>Category</h2>
+              <p><%= record.category %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--The path is relative to "public" folder-->
+    <script src="./javascript/spinner.js"></script>
+  </main>
+  <%- include("footer.ejs") %>
+</body>
+</html>
