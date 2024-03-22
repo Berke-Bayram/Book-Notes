@@ -34,7 +34,10 @@
                 <% if(((locals.record.keywords) !== null) && ((locals.record.keywords) !== '')) { %>
                   <% const array = (record.keywords).split(","); %>
                   <% array.forEach(element => { %>
-                    <span class="keyword"><%= element %><button class="rm-button">❌</button></span>
+                    <span class="keyword">
+                      <span class="keywordText"><%= element %></span>
+                      <button class="rm-button">❌</button>
+                    </span>
                   <% }); %>
                 <% } %>
               </div>
@@ -63,7 +66,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!--The path is relative to "public" folder-->
-    <script src="./javascript/edit.js"></script>
+    <script src="./javascript/handler.js"></script>
     <script>
       const area = $('#notes');
       // Change the value of "textarea" on the edit page

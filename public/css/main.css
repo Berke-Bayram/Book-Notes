@@ -93,9 +93,13 @@ h1, h2, h3, .return, a {
   font-size: 1.2rem;
 }
 
-.sort-forms form {
+.sort-forms form, .account-forms form, .display-reviews form {
   display: inline;
   margin-right: 1rem;
+}
+
+.display-reviews {
+  margin-bottom: 1rem;
 }
 
 .book-cards {
@@ -119,7 +123,7 @@ h1, h2, h3, .return, a {
     width: 80%;
   }
 
-  .sorting button {
+  .sorting button, .account-forms button {
     display: block;
     margin: 0 auto;
   }

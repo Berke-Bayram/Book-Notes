@@ -5,7 +5,11 @@
   <main>
     <div class="main-container">
       <div class="header-div">
-        <h1>Book Notes</h1>
+        <% if(locals.user) { %>
+          <h1>Welcome Aboard, <%= locals.user %>!</h1>
+        <% } else { %>
+          <h1>Book Notes</h1>
+        <% } %>
         <p>
           This website includes my notes and reviews on some books that I find worth writing about.
           If you are looking for something to read, I hope you can find your next favorite book up here.
@@ -15,13 +19,40 @@
           "Open Library Covers API" is used in this project.
           Reference Link: <a href="https://openlibrary.org/dev/docs/api/covers" class="api-ref">API</a>
         </p>
-        <form action="/create" method="get">
-          <button>Create Your Review</button>
-        </form>
+        <p>
+          Note that you should have an account to create a new review, or edit / delete reviews. You cannot
+          edit other users' reviews or delete them.
+        </p>
+        <div class="account-forms">
+          <form action="/create" method="get">
+            <button>Create Your Review</button>
+          </form>
+          <% if(auth === true) { %>
+            <form action="/logout" method="get">
+              <button>Logout</button>
+            </form>
+          <% } else { %>
+            <form action="/login" method="get">
+              <button>Login</button>
+            </form>
+            <form action="/register" method="get">
+              <button>Register</button>
+            </form>
+          <% } %>
+        </div>
         <hr>
         <div class="sorting">
           <p><%= message %></p>
           <p>You can sort the records by title, date, or rating.</p>
+          <div class="display-reviews">
+            <form action="/all-reviews" method="get">
+              <button>All Reviews</button>
+            </form>
+            <form action="/your-reviews" method="get">
+              <button>Your Reviews</button>
+            </form>
+          </div>
+          <hr>
           <div class="sort-forms">
             <form action="/date-sorted" method="get">
               <button>Sort by Date</button>

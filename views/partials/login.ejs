@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs') %>
+<body>
+  <main>
+    <form action="/login" method="POST" class="login-form">
+      <h2>Welcome Back!</h2>
+      <h3>
+        <% if(locals.message) { %> 
+          <%= message %>
+        <% } %>
+        <% if(locals.queryMessage) { %>
+          <%= queryMessage %>
+        <% } %>
+      </h3>
+      <a href="/" class="return">Return to Main Page</a>
+      <hr>
+      <br>
+      <div class="log-div">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" autocomplete="username" required>
+      </div>
+      <div class="log-div">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </main>
+  <%- include("footer.ejs") %>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.login-form, .reg-form {
+  text-align: center;
+  background-color: #130f4088;
+  width: 40%;
+  padding: 1rem;
+}
+
+.log-div, .reg-div {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

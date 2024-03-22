@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('header.ejs') %>
+<body>
+  <main>
+    <form action="/register" method="post" class="reg-form">
+      <h2>User Registration</h2>
+      <h3>
+        <% if(locals.message) { %> 
+          <%= message %>
+        <% } %>
+        <% if(locals.queryMessage) { %>
+          <%= queryMessage %>
+        <% } %>
+      </h3>
+      <a href="/" class="return">Return to Main Page</a>
+      <hr>
+      <br>
+      <div class="reg-div">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="reg-div">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="reg-div">
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+  </main>
+  <%- include("footer.ejs") %>
+</body>
+</html>
