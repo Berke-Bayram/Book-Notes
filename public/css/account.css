@@ -9,3 +9,9 @@
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 768px) {
+  .login-form, .reg-form {
+    width: 80%;
+  }
+}

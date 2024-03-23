@@ -7,7 +7,8 @@ This is a web application for book reviews.
 - User authentication: Users can create accounts, log in, and log out.
 - Book reviews: Users can create, read, edit, and delete their own reviews for various books.
 - Sorting: Users can sort reviews by date, rating, and title.
-- Open Library Covers API: This project uses the Open Library Covers API to display book covers.
+- Open Library Covers API: This project uses the Open Library Covers API to display book covers. 
+- API Link: https://openlibrary.org/dev/docs/api/covers
 - PostgreSQL Database: This project uses PostgreSQL for data storage.
 
 ## Functionality
@@ -45,6 +46,7 @@ The application uses two tables: `users` and `books`.
 2. Install dependencies with `npm install`.
 3. Start the server with `npm start`.
 4. Navigate to `localhost:3000` in your web browser.
+5. (Note that you need to create a PostgreSQL database for the functionality. You can use the given database schema.)
 
 ## Contributing
 

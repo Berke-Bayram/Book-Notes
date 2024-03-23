@@ -59,7 +59,7 @@
               <label for="olid">Open Library ID (Optional)</label>
               <input type="text" name="olid" class="olid" size="30" value = "<%= record.olid %>" placeholder="Sample Format: OL24767384M">
             </div>
-            <button class="hidden-btn">Edit</button>
+            <button class="hidden-btn main-btn">Edit</button>
           </div>
         </form>
       </div>
@@ -68,9 +68,11 @@
     <!--The path is relative to "public" folder-->
     <script src="./javascript/handler.js"></script>
     <script>
+    $(document).ready(function() {
       const area = $('#notes');
       // Change the value of "textarea" on the edit page
-      area.val('<%= record.description %>');
+      area.val("<%- record.description %>");
+    });
     </script>
   </main>
   <%- include("footer.ejs") %>
